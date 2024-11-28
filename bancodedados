@@ -1,27 +1,26 @@
 CREATE TABLE Venda (
-    id_venda INTEGER PRIMARY KEY,
-    data_venda DATE,
-    item_venda VARCHAR (100),
-    id_comprador INTEGER
+    id_venda INTEGER PRIMARY KEY  NOT NULL,
+    data_venda DATE  NOT NULL,
+    item_venda VARCHAR (100)  NOT NULL,
+    id_comprador INTEGER  NOT NULL
 );
 
 CREATE TABLE ItemVenda (
-    id_item INTEGER PRIMARY KEY,
-    quantidade INTEGER,
-    subtotal FLOAT,
-    id_venda INTEGER,
-    id_produto INTEGER
+    id_item INTEGER PRIMARY KEY  NOT NULL,
+    quantidade INTEGER  NOT NULL,
+    subtotal FLOAT  NOT NULL,
+    id_venda INTEGER  NOT NULL,
+    id_produto INTEGER  NOT NULL
 );
 
 CREATE TABLE Comprador (
-    id_comprador INTEGER PRIMARY KEY,
-    nome VARCHAR (100),
-    telefone VARCHAR (50),
-    endereco VARCHAR (200)
+    id_comprador INTEGER PRIMARY KEY NOT NULL,
+    nome VARCHAR (100)  NOT NULL,
+    telefone VARCHAR (50)  NOT NULL,
+    endereco VARCHAR (200)  NOT NULL
 );
 
 CREATE TABLE Produto (
-    id_produto INTEGER PRIMARY KEY,
-    fk_ItemVenda_id_item INTEGER
+    id_produto INTEGER PRIMARY KEY  NOT NULL,
+    fk_ItemVenda_id_item INTEGER  NOT NULL
 );
-

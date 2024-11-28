@@ -1,0 +1,27 @@
+CREATE TABLE Venda (
+    id_venda INTEGER PRIMARY KEY,
+    data_venda DATE,
+    item_venda VARCHAR (100),
+    id_comprador INTEGER
+);
+
+CREATE TABLE ItemVenda (
+    id_item INTEGER PRIMARY KEY,
+    quantidade INTEGER,
+    subtotal FLOAT,
+    id_venda INTEGER,
+    id_produto INTEGER
+);
+
+CREATE TABLE Comprador (
+    id_comprador INTEGER PRIMARY KEY,
+    nome VARCHAR (100),
+    telefone VARCHAR (50),
+    endereco VARCHAR (200)
+);
+
+CREATE TABLE Produto (
+    id_produto INTEGER PRIMARY KEY,
+    fk_ItemVenda_id_item INTEGER
+);
+

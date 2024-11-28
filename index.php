@@ -1,7 +1,7 @@
 <?php
 // Inclui o arquivo de conexão com o banco de dados
 include 'db.php';
-
+//W4GTWG
 // Verifica se o formulário foi enviado para registrar o pedido
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_comprador = $_POST['id_comprador'];

@@ -62,28 +62,21 @@ $clientes = $stmt->fetchAll();
     <!-- Menu de Navegação -->
     <nav>
         <a href="index.php">Cadastro Comprador</a>
-        <a href="venda.php">Registro de Vendas</a>
+        <a href="registro.php">Registro de Vendas</a>
         <a href="cadastro.php">Cadastro do Produto</a>
     </nav>
 
     <h1>Registrar Cadastro</h1>
     <form action="index.php" method="POST">
-        <label for="id_comprador">Selecione o Comprador:</label>
-        <select id="id_comprador" name="id_comprador" onchange="preencherDadosComprador()" required>
-            <option value="">Escolha o Comprador</option>
-            <?php foreach ($Compradores as $Comprador): ?>
-                <option value="<?php echo $comprador['id_comprador']; ?>"><?php echo $comprador['nome']; ?></option>
-            <?php endforeach; ?>
-        </select><br>
 
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" disabled><br>
+        <input type="text" id="nome" name="nome" required><br>
         
         <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" name="telefone" disabled><br>
+        <input type="text" id="telefone" name="telefone" required><br>
 
         <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco" disabled><br>
+        <input type="text" id="endereco" name="endereco" required><br>
 
 
         <button type="submit">Cadastra Comprador </button>

@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Menu de Navegação -->
     <nav>
         <a href="index.php">Cadastro Comprador</a>
-        <a href="venda.php">Registro de Vendas</a>
+        <a href="registro.php">Registro de Vendas</a>
         <a href="cadastro.php">Cadastro do Produto</a>
     </nav>
 

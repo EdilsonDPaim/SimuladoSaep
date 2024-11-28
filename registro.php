@@ -5,19 +5,19 @@ include 'db.php';
 // Verifica se o pedido foi excluído
 if (isset($_GET['excluir'])) {
     $id = $_GET['excluir'];
-    $sql = "DELETE FROM pedidos WHERE id = :id";
+    $sql = "DELETE FROM venda WHERE id = :id";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
 
-    header('Location: pedidos.php');
+    header('Location: registro.php');
     exit;
 }
 
 // Verifica se o status do pedido foi alterado
 if (isset($_GET['atualizar_status'])) {
     $id = $_GET['atualizar_status'];
-    $sql = "UPDATE pedidos SET status = CASE 
+    $sql = "UPDATE venda SET status = CASE 
                 WHEN status = 'A fazer' THEN 'Em preparação' 
                 WHEN status = 'Em preparação' THEN 'Pronto' 
                 WHEN status = 'Pronto' THEN 'A fazer' 
@@ -26,17 +26,9 @@ if (isset($_GET['atualizar_status'])) {
     $stmt->bindParam(':id', $id);
     $stmt->execute();
 
-    header('Location: pedidos.php');
+    header('Location: registro.php');
     exit;
 }
-
-// Consulta os pedidos e os dados dos clientes
-$sql = "SELECT venda.*, compradores.nome, compradores.telefone, compradores.endereco
-        FROM venda 
-        JOIN compradores ON venda.id_comprador = compradores.id_venda";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$venda = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -51,13 +43,13 @@ $venda = $stmt->fetchAll();
     <!-- Menu de Navegação -->
     <nav>
         <a href="index.php">Cadastro Comprador</a>
-        <a href="venda.php">Registro de Vendas</a>
+        <a href="registro.php">Registro de Vendas</a>
         <a href="cadastro.php">Cadastro do Produto</a>
 
     </nav>
 
     <h1>Vendas</h1>
-  <!-- Pedidos prontos -->
+  <!-- venda prontos -->
         <div class="coluna">
             <h2>Vendas Prontas</h2>
             <?php foreach ($vendas as $venda): ?>

@@ -22,5 +22,9 @@ CREATE TABLE Comprador (
 
 CREATE TABLE Produto (
     id_produto INTEGER PRIMARY KEY  NOT NULL,
+    informacoes VARCHAR (100) NOT NULL,
+    nome_produto VARCHAR (100) NOT NULL,
+    descricao VARCHAR (100) NOT NULL,
+    preco FLOAT NOT NULL,
     fk_ItemVenda_id_item INTEGER  NOT NULL
 );
